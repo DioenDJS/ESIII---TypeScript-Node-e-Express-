@@ -8,14 +8,17 @@ export default class Product{
 
     buyPrice: number;
 
+    sellPrice: number;
+
     tags: Array<Product>;
 
     lovers: number;
 
-    constructor({code, description, buyPrice, tags, lovers}:Product) {
+    constructor({code, description, buyPrice, sellPrice tags, lovers}: Omit<Product, 'id'>) {
         this.code = code;
         this.description = description;
         this.buyPrice = buyPrice;
+        this.sellPrice = sellPrice;
         this.tags = tags;
         this.lovers = lovers;
         this.id = uuid();
