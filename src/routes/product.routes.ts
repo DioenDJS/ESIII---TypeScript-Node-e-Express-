@@ -1,4 +1,4 @@
-import { Router } from'express';
+import { request, response, Router } from'express';
 import ProductRepository from '../repositories/ProductRepository';
 import CreateProductService from '../services/CreateProductService';
 
@@ -20,4 +20,10 @@ productRouter.post('/', (request, response) =>{
       }
 });
 
+productRouter.put('/:id', (request, response) =>{
+    const { buyPrice, sellPrice, tags, lovers } = request.body;
+    const { id } = request.params;
+
+    const productChange = productRepository.alterar(buyPrice, sellPrice, tags, lovers)
+})
 export default productRouter;
