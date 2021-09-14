@@ -11,6 +11,10 @@ export default class ProductRepository{
         return this.products;
     }
 
+    public findByCode(code: number): Product | undefined{
+        return this.products.find(item => item.code === code);
+    }
+
     public save({code, description, buyPrice, sellPrice, tags, lovers}: Product){
         const product = new Product({code, description, buyPrice, sellPrice, tags, lovers});
         this.products.push(product)
