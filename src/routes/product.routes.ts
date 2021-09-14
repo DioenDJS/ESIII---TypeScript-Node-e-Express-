@@ -1,13 +1,23 @@
 import { Router } from'express';
+import ProductRepository from '../repositories/ProductRepository';
+import CreateProductService from '../services/CreateProductService';
 
 const productRouter = Router();
+const productRepository = new ProductRepository();
 
 productRouter.get('/', (request, response) =>{
-    throw Error('Ainda não implementado');
+    response.json(productRepository.findAll())    
 });
 
 productRouter.post('/', (request, response) =>{
-    throw Error('Ainda não implementado');
+    try{ 
+        const service = new CreateProductService(productRepository)
+        const {code, description, buyPrice, sellPrice, tags, lovers, id} = request.body;
+        const product = service.execute({code, description, buyPrice, sellPrice, tags, lovers, id})
+        return response.status(201).json(product);
+    }catch (err) {
+        return response.status(400).json({ Error: err });
+      }
 });
 
 export default productRouter;
