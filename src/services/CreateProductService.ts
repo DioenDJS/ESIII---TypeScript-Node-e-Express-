@@ -14,6 +14,8 @@ export default class CreateProductService{
         if(product){
             throw Error('Produto já existe ! ');
         }
-        return new Product({code, description, buyPrice, sellPrice, tags, lovers});
+        const newProduct = new Product({code, description, buyPrice, sellPrice, tags, lovers});
+        this.repository.save(newProduct);
+        return newProduct;
     }
 }
