@@ -14,7 +14,7 @@ export default class Product{
 
     lovers: number;
 
-    constructor({code, description, buyPrice, sellPrice tags, lovers}: Omit<Product, 'id'>) {
+    constructor({code, description, buyPrice, sellPrice, tags, lovers}: Omit<Product, 'id'>) {
         this.code = code;
         this.description = description;
         this.buyPrice = buyPrice;
