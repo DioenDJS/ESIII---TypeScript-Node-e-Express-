@@ -21,4 +21,29 @@ export default class ProductRepository{
 
         return product;
     }
+
+    public alterar({lovers, buyPrice, sellPrice, tags, id}: Product): Product[] {
+
+        const productsChange = this.products.filter(item => {
+
+            
+                if(item.id === id){
+                    return item
+                }else{
+                    item.sellPrice = sellPrice
+                    item.description = description;
+                    item.buyPrice = buyPrice;
+                    item.code = code
+                    item.tags = tags;
+
+                    return item;
+                }
+            }
+
+        )
+
+        this.products = productsChange;
+
+        return this.products;
+    }
 }
