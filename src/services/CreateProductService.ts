@@ -12,8 +12,8 @@ export default class CreateProductService{
     public execute({buyPrice,code, sellPrice, description, lovers, tags}:Product): Product {
         const product = this.repository.findByCode(code);
         if(product){
-            return product;
+            throw Error("Produto já existe ! ");
         }
-        throw Error("Produto já existe ! ");
+        return new Product({code, description, buyPrice, sellPrice, tags, lovers});
     }
 }
