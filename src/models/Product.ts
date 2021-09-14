@@ -1,5 +1,5 @@
 import { uuid } from 'uuidv4'
-class Product{
+export default class Product{
     id: string;
 
     code: number;
