@@ -39,11 +39,25 @@ Ao final a aplicação estará disponível em `http://localhost:3000`.
 
 ## Insomnia
 
-### Criação
+### Criação Product
 <img align="center" alt="img criação"  src="assets/criar.png" />
 
-### Listam
+
+### Lista Product
 <img align="center" alt="img listar"  src="assets/listar.png" />
+
+
+### Criação Client
+<img align="center" alt="img criação"  src="assets/criarClient.png" />
+
+
+### Lista Clients
+<img align="center" alt="img criação"  src="assets/listaClient.png" />
+
+
+### Lista Client id
+<img align="center" alt="img criação"  src="assets/listaIdClient.png" />
+
 
 ## Dependências do Projetos :card_index_dividers:
 
