@@ -49,11 +49,11 @@ Ao final a aplicação estará disponível em `http://localhost:3000`.
 
 
 ### Criação Client
-<img align="center" alt="img criação"  src="assets/criarClient.png" />
+<img align="center" alt="img criação"  src="assets/criarclient.png" />
 
 
 ### Lista Clients
-<img align="center" alt="img criação"  src="assets/listaClient.png" />
+<img align="center" alt="img criação"  src="assets/listaclient.png" />
 
 
 ### Lista Client id
