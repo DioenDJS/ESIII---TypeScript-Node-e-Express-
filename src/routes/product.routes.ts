@@ -20,10 +20,29 @@ productRouter.post('/', (request, response) =>{
       }
 });
 
-productRouter.put('/:id', (request, response) =>{
-    const { buyPrice, sellPrice, tags, lovers } = request.body;
+productRouter.put('/:id', (request, response) => {
+    const { buyPrice, sellPrice, tags, lovers , code, description } = request.body;
     const { id } = request.params;
+    try{
+        const productChange = productRepository.alterar({code, description,buyPrice, sellPrice, tags, lovers, id})
+        return response.status(200).json(productChange);
+    }catch(err){
+        return response.status(400).json({ Error: err });
+    }
 
-    const productChange = productRepository.alterar(buyPrice, sellPrice, tags, lovers)
-})
+
+});
+
+productRouter.delete('/:id', async (request, response) => {
+    const { id } = request.params;
+    try{
+        const productChange = await productRepository.delete(id)
+        return response.status(200).send(productChange);
+    }catch(err){
+        return response.status(400).json({ Error: err });
+    }
+
+
+});
+
 export default productRouter;
