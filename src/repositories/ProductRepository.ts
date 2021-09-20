@@ -22,34 +22,34 @@ export default class ProductRepository{
     }
 
     public alterar({ description, code, buyPrice, sellPrice, tags, id}: Product): Product {
-    
-        const productsChange = this.products.find((value) => value.id === id);
-        const storeValuablesProductsChange = productsChange;
-    
-    console.log(id)
-    console.log(productsChange)
-
-        if(!productsChange){
-            throw Error('Produto já existe ! ');
-        }
-        const newListProducts = this.products.filter(value => value.id !== id);
-
-        productsChange.description = description;
-        productsChange.code = code;
-        productsChange.buyPrice = buyPrice;
-        productsChange.sellPrice = sellPrice;
-        productsChange.tags = tags;
-
-        this.products = [...newListProducts , productsChange ];
-
-        return productsChange;
-    }
-
-    public  delete(id: string) {
-        const deletedProduct = this.products.find(item => item.id === id);
-        const idDeletedProduct = deletedProduct?.id;
-        // this.products.pop(deletedProduct):Product | undefined;
         
-        return deletedProduct;
+        const confirmProduct = this.products.find(item =>  item.id === id)
+        
+        if(!confirmProduct){
+            throw new Error('não exist product !');
+        }
+        
+        const productsChange =  this.products.filter(item =>  {
+
+            if(item.id !== id){
+                return item;
+            }else{
+
+                return  item.description = description,
+                        item.code = code,
+                        item.buyPrice = buyPrice,
+                        item.sellPrice = sellPrice,
+                        item.tags = tags
+                    
+            }
+            
+        });
+        
+        this.products = [];
+        this.products = productsChange;
+        
+        return confirmProduct; 
     }
+
+    
 }
