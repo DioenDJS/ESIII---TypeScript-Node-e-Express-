@@ -40,25 +40,32 @@ Ao final a aplicação estará disponível em `http://localhost:3000`.
 ## Insomnia
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=ESIII&uri=https%3A%2F%2Fraw.githubusercontent.com%2FDioenDJS%2FESIII---TypeScript-Node-e-Express-%2Fmain%2Fassets%2FInsomnia_2021-09-18.json)
-### Criação Product
+## Criação Product
 <img align="center" alt="img criação"  src="assets/criar.png" />
 
 
-### Lista Product
+## Lista Product
 <img align="center" alt="img listar"  src="assets/listar.png" />
 
 
-### Criação Client
+## Criação Client
 <img align="center" alt="img criação"  src="assets/criarclient.png" />
 
 
-### Lista Clients
+## Lista Clients
 <img align="center" alt="img criação"  src="assets/listaclient.png" />
 
 
-### Lista Client id
+## Lista Client id
 <img align="center" alt="img criação"  src="assets/listaIdClient.png" />
 
+
+## Atualiza Client 
+<img align="center" alt="img criação"  src="assets/AtualizaClient.png" />
+
+
+## Delete Client
+<img align="center" alt="img criação"  src="assets/deleteClient.png" />
 
 ## Dependências do Projetos :card_index_dividers:
 
