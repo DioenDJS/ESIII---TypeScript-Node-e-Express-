@@ -44,4 +44,16 @@ clientRouter.put('/:id', async (request, response) => {
       }
 });
 
+clientRouter.delete('/:id', async (request, response) => {
+    try{
+
+        const id  = request.params.id;
+        
+        const clientChange = await clientRepository.delete(id);
+        return response.status(200).json(clientChange);
+    }catch (err) {
+        return response.status(400).json({ err});
+      }
+});
+
 export default clientRouter;

@@ -37,4 +37,20 @@ export default class ClientRepository{
         
         return confirmClint; 
     }
+
+    public async delete(id:string):Promise<string | undefined> {
+        
+        const confirmClint = this.clients.find(item =>  item.id === id)
+        
+        if(!confirmClint){
+            return undefined;
+        }
+        
+        const clientsSave = await this.clients.filter(item =>  item.id !== id);
+        
+        this.clients = [];
+        this.clients = clientsSave;
+        
+        return confirmClint.id; 
+    }
 }
