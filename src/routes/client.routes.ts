@@ -31,5 +31,17 @@ clientRouter.post('/', async(request, response) =>{
       }
 });
 
+clientRouter.put('/:id', async (request, response) => {
+    try{
+
+        const { name } = request.body;
+        const id  = request.params.id;
+        
+        const clientChange = await clientRepository.alterar(name, id );
+        return response.status(200).json(clientChange);
+    }catch (err) {
+        return response.status(400).json({ err});
+      }
+});
 
 export default clientRouter;
