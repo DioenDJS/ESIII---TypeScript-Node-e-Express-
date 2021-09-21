@@ -48,6 +48,10 @@ Ao final a aplicação estará disponível em `http://localhost:3000`.
 <img align="center" alt="img listar"  src="assets/listar.png" />
 
 
+## Delete Product
+<img align="center" alt="img listar"  src="assets/delete.png" />
+
+
 ## Criação Client
 <img align="center" alt="img criação"  src="assets/criarclient.png" />
 
