@@ -21,10 +21,11 @@ export default class ProductRepository{
         return product;
     }
 
-    public alterar({ description, code, buyPrice, sellPrice, tags, id}: Product): Product {
+    public alterar( description:string, code:number, buyPrice:number, sellPrice:number, id:string ): Product {
         
         const confirmProduct = this.products.find(item =>  item.id === id)
         
+        console.log(confirmProduct)
         if(!confirmProduct){
             throw new Error('não exist product !');
         }
@@ -38,9 +39,7 @@ export default class ProductRepository{
                 return  item.description = description,
                         item.code = code,
                         item.buyPrice = buyPrice,
-                        item.sellPrice = sellPrice,
-                        item.tags = tags
-                    
+                        item.sellPrice = sellPrice
             }
             
         });
@@ -49,6 +48,22 @@ export default class ProductRepository{
         this.products = productsChange;
         
         return confirmProduct; 
+    }
+
+    public async delete(id:string):Promise<string | undefined> {
+        
+        const confirmClint = this.products.find(item =>  item.id === id)
+        
+        if(!confirmClint){
+            return undefined;
+        }
+        
+        const productSave = await this.products.filter(item =>  item.id !== id);
+        
+        this.products = [];
+        this.products = productSave;
+        
+        return confirmClint.id; 
     }
 
     

@@ -21,10 +21,10 @@ productRouter.post('/', (request, response) =>{
 });
 
 productRouter.put('/:id', async (request, response) => {
-        const { buyPrice, sellPrice, tags, lovers , code, description } = request.body;
+        const { buyPrice, sellPrice, code, description } = request.body;
         const { id } = request.params;
     try{
-        const productChange = productRepository.alterar({code, description,buyPrice, sellPrice, tags, lovers, id})
+        const productChange = productRepository.alterar(code, description, buyPrice, sellPrice, id)
         
         return response.status(200).json(productChange);
     }catch (err) {
@@ -32,16 +32,16 @@ productRouter.put('/:id', async (request, response) => {
       }
 });
 
-// productRouter.delete('/:id', async (request, response) => {
-//     const { id } = request.params;
-//     try{
-//         const productChange = await productRepository.delete(id)
-//         return response.status(200).send(productChange);
-//     }catch(err){
-//         return response.status(400).json({ Error: err });
-//     }
+productRouter.delete('/:id', async (request, response) => {
+    try{
 
-
-// });
+        const id  = request.params.id;
+        
+        const clientChange = await productRepository.delete(id);
+        return response.status(200).json(clientChange);
+    }catch (err) {
+        return response.status(400).json({ err});
+      }
+});
 
 export default productRouter;
