@@ -80,3 +80,11 @@ Ao final a aplicação estará disponível em `http://localhost:3000`.
 > - express
 >
 > ```npm install express```
+
+> - uuidv4s
+>
+>```npm install uuidv4```
+
+> - ts-node-dev 
+>
+>```npm i ts-node-dev -D```
