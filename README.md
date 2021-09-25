@@ -88,3 +88,9 @@ Ao final a aplicação estará disponível em `http://localhost:3000`.
 > - ts-node-dev 
 >
 >```npm i ts-node-dev -D```
+
+# Docker: <img align="center" alt="img notion" height="60" width="65" src="assets/docker.png" style="max-width:100%;" />
+
+> como foi instalado e configurado o docker neste projeto
+
+- [Notion](https://www.notion.so/Docker-2e9af245cb3f4cdda13adbb027311ace) <img align="center" alt="img notion" height="20" width="25" src="assets/notion.png" style="max-width:100%;" />
