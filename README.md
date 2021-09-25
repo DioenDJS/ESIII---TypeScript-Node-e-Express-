@@ -91,6 +91,14 @@ Ao final a aplicação estará disponível em `http://localhost:3000`.
 
 # Docker: <img align="center" alt="img notion" height="60" width="65" src="assets/docker.png" style="max-width:100%;" />
 
-> como foi instalado e configurado o docker neste projeto
+> como foi instalado e configurado o ``docker`` neste projeto
 
 - [Notion](https://www.notion.so/Docker-2e9af245cb3f4cdda13adbb027311ace) <img align="center" alt="img notion" height="20" width="25" src="assets/notion.png" style="max-width:100%;" />
+
+
+
+# TYPEORM: <img align="center" alt="img notion" height="60" width="85" src="assets/typeorm.png" style="max-width:100%;" />
+
+> como foi instalado e configurado o ``TYPEORM`` neste projeto
+
+- [Notion](https://www.notion.so/TYPEORM-3be2ed36d855431db3ba43a6c0a35848) <img align="center" alt="img notion" height="20" width="25" src="assets/notion.png" style="max-width:100%;" />
