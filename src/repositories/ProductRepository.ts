@@ -17,13 +17,12 @@ export default class ProductRepository{
     public save({code, description, buyPrice, sellPrice, tags, lovers}: Product){
         const product = new Product({code, description, buyPrice, sellPrice, tags, lovers});
         this.products.push(product)
-        console.log(this.products)
         return product;
     }
 
-    public alterar( description:string, code:number, buyPrice:number, sellPrice:number, id:string ): Product {
+    public async alterar( description:string, code:number, buyPrice:number, sellPrice:number, id:string ): Promise<Product | undefined> {
         
-        const confirmProduct = this.products.find(item =>  item.id === id)
+        const confirmProduct = await  this.products.find(item =>  item.id === id)
         
         console.log(confirmProduct)
         if(!confirmProduct){

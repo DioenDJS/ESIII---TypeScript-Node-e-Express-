@@ -24,7 +24,7 @@ productRouter.put('/:id', async (request, response) => {
         const { buyPrice, sellPrice, code, description } = request.body;
         const { id } = request.params;
     try{
-        const productChange = productRepository.alterar(code, description, buyPrice, sellPrice, id)
+        const productChange = await productRepository.alterar(code, description, buyPrice, sellPrice, id)
         
         return response.status(200).json(productChange);
     }catch (err) {
