@@ -17,7 +17,7 @@ export default class Content {
     @CreateDateColumn({name: 'created_At'})
     createAt: Date;
 
-    @UpdateDateColumn({name: 'update_At'})
+    @UpdateDateColumn({name: 'updated_At'})
     updateAt: Date;
 
 }
