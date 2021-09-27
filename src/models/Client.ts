@@ -1,5 +1,5 @@
 import Product from './Product';
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn} from "typeorm";
 
 @Entity()
 export default class Client{
@@ -15,5 +15,11 @@ export default class Client{
 
     @Column(type => Product)
     purchases: Product[];
+
+    @CreateDateColumn({name: 'created_At'})
+    createAt: Date;
+
+    @UpdateDateColumn({name: 'update_At'})
+    updateAt: Date;
 
 }
