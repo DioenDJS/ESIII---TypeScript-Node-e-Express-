@@ -1,26 +1,27 @@
-import { uuid } from 'uuidv4'
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+
+@Entity()
 export default class Product{
+
+    @PrimaryGeneratedColumn('uuid')
     id: string;
 
+    @Column({unique: true})
     code: number;
 
+    @Column()
     description: string;
 
+    @Column({type: "float"})
     buyPrice: number;
 
+    @Column({type: "float"})
     sellPrice: number;
 
+    @Column(type => Product)
     tags: Array<Product>;
 
+    @Column()
     lovers: number;
 
-    constructor({code, description, buyPrice, sellPrice, tags, lovers}: Omit<Product, 'id'>) {
-        this.code = code;
-        this.description = description;
-        this.buyPrice = buyPrice;
-        this.sellPrice = sellPrice;
-        this.tags = tags;
-        this.lovers = lovers;
-        this.id = uuid();
-    }
 }
