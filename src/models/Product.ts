@@ -1,6 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, TreeChildren, UpdateDateColumn } from "typeorm";
 
-@Entity()
+@Entity('product')
 export default class Product{
 
     @PrimaryGeneratedColumn('uuid')
@@ -18,7 +18,7 @@ export default class Product{
     @Column({type: "float"})
     sellPrice: number;
 
-    @Column(type => Product)
+    @TreeChildren()
     tags: Array<Product>;
 
     @Column()
