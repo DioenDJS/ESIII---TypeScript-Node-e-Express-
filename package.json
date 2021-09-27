@@ -1,28 +1,36 @@
 {
-  "name": "ESIII_Isolamento",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "build": "tsc",
-    "dev": "ts-node-dev --inspect --ignore-watch node_modules src/server.ts"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.5",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
-    "@typescript-eslint/parser": "^2.27.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-import-resolver-typescript": "^2.0.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^2.0.4",
-    "ts-node-dev": "^1.0.0-pre.44",
-    "typescript": "^3.8.3"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "uuidv4": "^6.0.7"
-  }
+   "name": "ESIII_Isolamento",
+   "version": "1.0.0",
+   "main": "index.js",
+   "license": "MIT",
+   "scripts": {
+      "build": "tsc",
+      "dev": "ts-node-dev --inspect --ignore-watch node_modules src/server.ts",
+      "start": "ts-node src/index.ts",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
+   },
+   "devDependencies": {
+      "@types/express": "^4.17.5",
+      "@typescript-eslint/eslint-plugin": "^2.27.0",
+      "@typescript-eslint/parser": "^2.27.0",
+      "eslint": "^6.8.0",
+      "eslint-config-airbnb-base": "^14.1.0",
+      "eslint-config-prettier": "^6.10.1",
+      "eslint-import-resolver-typescript": "^2.0.0",
+      "eslint-plugin-import": "^2.20.1",
+      "eslint-plugin-prettier": "^3.1.2",
+      "prettier": "^2.0.4",
+      "ts-node-dev": "^1.0.0-pre.44",
+      "typescript": "3.3.3333",
+      "ts-node": "3.3.0",
+      "@types/node": "^8.0.29"
+   },
+   "dependencies": {
+      "express": "^4.17.1",
+      "mysql": "^2.14.1",
+      "pg": "^8.7.1",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.32",
+      "uuidv4": "^6.0.7"
+   }
 }

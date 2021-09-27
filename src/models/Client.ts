@@ -1,18 +1,25 @@
-import { uuid } from 'uuidv4'
 import Product from './Product';
+import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn} from "typeorm";
+
+@Entity()
 export default class Client{
+
+    @PrimaryGeneratedColumn('uuid')
     id: string;
 
+    @Column()
     name: string;
 
+    @Column()
     buyLast: Date;
 
+    @Column(type => Product)
     purchases: Product[];
 
-    constructor({ name, purchases}: Omit<Client, 'id, buyLast'>) {
-        this.name = name;
-        this.buyLast = new Date();
-        this.id = uuid();
-        this.purchases = purchases;
-    }
+    @CreateDateColumn({name: 'created_At'})
+    createAt: Date;
+
+    @UpdateDateColumn({name: 'update_At'})
+    updateAt: Date;
+
 }
