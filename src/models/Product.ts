@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export default class Product{
@@ -23,5 +23,11 @@ export default class Product{
 
     @Column()
     lovers: number;
+
+    @CreateDateColumn({name: 'created_At'})
+    createAt: Date;
+
+    @UpdateDateColumn({name: 'update_At'})
+    updateAt: Date;
 
 }
