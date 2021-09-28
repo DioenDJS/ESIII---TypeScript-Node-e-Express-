@@ -13,8 +13,8 @@ export default class Client{
     @Column()
     buyLast: Date;
 
-    @Column(type => Product)
-    purchases: Product[];
+    // @Column(type => Product)
+    // purchases: Product[];
 
     @CreateDateColumn({name: 'created_At'})
     createAt: Date;
