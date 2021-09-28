@@ -1,59 +1,81 @@
-import { request, response, Router } from'express';
-import ClientRepository from '../repositories/ClientRepository';
-
-
+import { Router } from'express';
+import { getRepository } from 'typeorm';
+import Client from '../models/Client';
 
 const clientRouter = Router();
-const clientRepository = new ClientRepository();
-
-clientRouter.get('/', (request, response) =>{
-    response.json(clientRepository.findAll())    
-});
-
-clientRouter.get('/:id', (request, response) =>{
-    const id = request.params.id;
-    response.json(clientRepository.findById(id)) ;    
-});
 
 clientRouter.post('/', async(request, response) =>{
-    try{ 
-        const {name, buyLast, purchases} = request.body;
-        const client = clientRepository.save({
-            id:"",
-            name, 
-            buyLast, 
-            purchases
-        })
-     
-        return response.status(201).json(client);
-    }catch (err) {
-        return response.status(400).json({ Error: err });
-      }
-});
-
-clientRouter.put('/:id', async (request, response) => {
     try{
 
-        const { name } = request.body;
-        const id  = request.params.id;
-        
-        const clientChange = await clientRepository.alterar(name, id );
-        return response.status(200).json(clientChange);
-    }catch (err) {
-        return response.status(400).json({ err});
-      }
+        const repositoryClient = getRepository(Client);
+        const {name, buyLast, purchases} = request.body
+        const client = {
+            name,
+            buyLast,
+            purchases,
+        }
+        const createClient = repositoryClient.create(client)
+        const res = await repositoryClient.save(createClient);
+        return response.status(201).json(res);
+    }catch(err){
+        console.log("Erro: ", err.message)
+    }
 });
 
-clientRouter.delete('/:id', async (request, response) => {
+clientRouter.get('/', async(request, response) =>{
     try{
+        const repositoryClient = getRepository(Client);
 
-        const id  = request.params.id;
-        
-        const clientChange = await clientRepository.delete(id);
+        const clientAll = await repositoryClient.find();
+        return response.status(200).json(clientAll);
+    }catch(err){
+        console.log("Erro: ", err.message)
+    }
+});
+
+clientRouter.get('/:id', async(request, response) =>{
+    try{
+        const repositoryClient = getRepository(Client);
+
+        const id = request.params.id;
+        const clientOne = await repositoryClient.find({
+            where:{
+                id
+            }
+        });
+        return response.status(200).json(clientOne);
+    }catch(err){
+        console.log("Erro: ", err.message)
+    }
+});
+
+clientRouter.put('/:id', async(request, response) =>{
+    try{
+        const repositoryClient = getRepository(Client);
+
+        const id = request.params.id;
+        const {name} = request.body
+        const clientChange = await repositoryClient.update(id, {name});
         return response.status(200).json(clientChange);
-    }catch (err) {
-        return response.status(400).json({ err});
-      }
+    }catch(err){
+        console.log("Erro: ", err.message)
+    }
+
+    const {name, buyLast, purchases} = request.body
+});
+
+clientRouter.delete('/:id', async(request, response) =>{
+    try{
+        const repositoryClient = getRepository(Client);
+
+        const id = request.params.id;
+        const clientDelete = await repositoryClient.delete(id);
+        return response.status(200).send();
+    }catch(err){
+        console.log("Erro: ", err.message)
+    }
+
+    const {name, buyLast, purchases} = request.body
 });
 
 export default clientRouter;
